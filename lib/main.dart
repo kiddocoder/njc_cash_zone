@@ -129,7 +129,7 @@ class LoanDashboardScreen extends StatelessWidget {
                   width: 8,
                   height: 8,
                   decoration: const BoxDecoration(
-                    color: Color(0xFF10B981),
+                    color: Color(0xFF65B947),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -292,22 +292,22 @@ class LoanDashboardScreen extends StatelessWidget {
           _buildActionButton(
             icon: Icons.trending_up_outlined,
             label: 'Request Loan',
-            color: const Color(0xFF10B981),
+            color: const Color(0xFF65B947),
           ),
           _buildActionButton(
             icon: Icons.description_outlined,
             label: 'Upload Docs',
-            color: const Color(0xFF10B981),
+            color: const Color(0xFF65B947),
           ),
           _buildActionButton(
             icon: Icons.chat_bubble_outline,
             label: 'Chat Support',
-            color: const Color(0xFF10B981),
+            color: const Color(0xFF65B947),
           ),
           _buildActionButton(
             icon: Icons.update,
             label: 'Loan History',
-            color: const Color(0xFF10B981),
+            color: const Color(0xFF65B947),
           ),
         ],
       ),
@@ -377,7 +377,7 @@ class LoanDashboardScreen extends StatelessWidget {
                 child: const Text(
                   'See All',
                   style: TextStyle(
-                    color: Color(0xFF10B981),
+                    color: Color(0xFF65B947),
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                   ),
@@ -405,13 +405,17 @@ class LoanDashboardScreen extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFD1FAE5),
+                    color: const Color(0xFFFFFFFF),
                     borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.green.withOpacity(0.2),
+                      width: 1,
+                    ),
                   ),
-                  child: const Icon(
-                    Icons.trending_up,
-                    color: Color(0xFF10B981),
-                    size: 24,
+                  child: Image(
+                    image: AssetImage("assets/icons/borrow_svgrepo.png"),
+                    color: Color(0xFF65B947),
+                    width: 24,
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -452,7 +456,7 @@ class LoanDashboardScreen extends StatelessWidget {
                           strokeWidth: 4,
                           backgroundColor: const Color(0xFFE5E7EB),
                           valueColor: const AlwaysStoppedAnimation<Color>(
-                            Color(0xFF10B981),
+                            Color(0xFF65B947),
                           ),
                         ),
                       ),
@@ -461,7 +465,7 @@ class LoanDashboardScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFF10B981),
+                          color: Color(0xFF65B947),
                         ),
                       ),
                     ],
@@ -495,7 +499,7 @@ class LoanDashboardScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF10B981),
+                    backgroundColor: const Color(0xFF65B947),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -545,7 +549,7 @@ class LoanDashboardScreen extends StatelessWidget {
                 child: const Text(
                   'See All',
                   style: TextStyle(
-                    color: Color(0xFF10B981),
+                    color: Color(0xFF65B947),
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                   ),
@@ -559,7 +563,7 @@ class LoanDashboardScreen extends StatelessWidget {
             title: 'Loan Request Submitted',
             time: 'Today 1:53 PM',
             amount: '+R 5,000.00',
-            amountColor: const Color(0xFF10B981),
+            amountColor: const Color(0xFF65B947),
           ),
           const SizedBox(height: 12),
           _buildActivityItem(
@@ -603,7 +607,7 @@ class LoanDashboardScreen extends StatelessWidget {
               color: const Color(0xFFD1FAE5),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(icon, color: const Color(0xFF10B981), size: 20),
+            child: Icon(icon, color: const Color(0xFF65B947), size: 20),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -704,18 +708,22 @@ class LoanDashboardScreen extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
-          color: const Color(0xFF10B981),
+          color: const Color(0xFF65B947).withOpacity(0.1),
           borderRadius: BorderRadius.circular(24),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image(image: AssetImage(image!), color: Colors.white, width: 20),
+            Image(
+              image: AssetImage(image!),
+              color: Color(0xFF65B947),
+              width: 20,
+            ),
             const SizedBox(width: 6),
             Text(
               label,
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.grey,
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
