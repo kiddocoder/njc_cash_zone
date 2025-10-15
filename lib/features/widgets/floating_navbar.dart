@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/features/chats/discussions.dart';
 import 'package:njc_cash_zone/features/dashboard/dashboard.dart';
+import 'package:njc_cash_zone/features/history/history_screen.dart';
 import 'package:njc_cash_zone/features/loans/loans_screen.dart';
 
 class FloatingNavbar extends StatelessWidget {
@@ -23,12 +25,12 @@ class FloatingNavbar extends StatelessWidget {
       {
         'icon': "assets/icons/chats-chat-sms-talk_svgrepo.png",
         'label': 'Chats',
-        'route': const DashboardScreen(),
+        'route': const DiscussionsScreen(),
       },
       {
         'icon': "assets/icons/history-round_svgrepo.png",
         'label': 'History',
-        'route': const DashboardScreen(),
+        'route': const HistoryScreen(),
       },
       {
         'icon': "assets/icons/user_svgrepo.png",
