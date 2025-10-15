@@ -3,6 +3,7 @@ import 'package:njc_cash_zone/core/constants/colors.dart';
 import '../constants/sizes.dart';
 
 final ThemeData lightTheme = ThemeData(
+  useMaterial3: false,
   brightness: Brightness.light,
   primaryColor: accentColor,
   scaffoldBackgroundColor: whiteColor,
@@ -10,8 +11,8 @@ final ThemeData lightTheme = ThemeData(
     primary: accentColor,
     secondary: primaryColor,
     error: redColor,
-    background: whiteColor,
-    onBackground: blackColor,
+    surface: whiteColor,
+    onSurface: blackColor,
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: whiteColor,
@@ -24,6 +25,7 @@ final ThemeData lightTheme = ThemeData(
       fontSize: 28,
       fontWeight: FontWeight.bold,
       color: blackColor,
+      fontFamily: 'Poppins',
     ),
     headlineMedium: TextStyle(
       fontSize: 22,

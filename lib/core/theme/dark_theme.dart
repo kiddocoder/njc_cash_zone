@@ -10,8 +10,8 @@ final ThemeData darkTheme = ThemeData(
     primary: accentColor,
     secondary: primaryColor,
     error: redColor,
-    background: blackColor,
-    onBackground: whiteColor,
+    surface: blackColor,
+    onSurface: whiteColor,
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xFF1E1E1E),
@@ -24,6 +24,7 @@ final ThemeData darkTheme = ThemeData(
       fontSize: 28,
       fontWeight: FontWeight.bold,
       color: whiteColor,
+      fontFamily: "Poppins",
     ),
     headlineMedium: const TextStyle(
       fontSize: 22,

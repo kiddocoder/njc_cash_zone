@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Loan Management',
+      title: 'Loan Management System',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: AppTheme.themeMode,
