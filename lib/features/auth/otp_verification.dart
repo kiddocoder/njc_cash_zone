@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/auth/success_email.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
@@ -98,7 +99,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF10B981),
+                    backgroundColor: accentColor,
                     foregroundColor: Colors.white,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -128,7 +129,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
       height: 72,
       decoration: BoxDecoration(
         border: Border.all(
-          color: isActive ? const Color(0xFF10B981) : const Color(0xFFE5E7EB),
+          color: isActive ? accentColor : const Color(0xFFE5E7EB),
           width: 2,
         ),
         borderRadius: BorderRadius.circular(16),
@@ -145,10 +146,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
           fontWeight: FontWeight.w600,
           color: Colors.black87,
         ),
-        decoration: const InputDecoration(
-          counterText: '',
-          border: InputBorder.none,
-        ),
+        decoration: const InputDecoration(counterText: ''),
         onChanged: (value) => _onChanged(value, index),
       ),
     );

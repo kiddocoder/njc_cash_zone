@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/auth/authentification/forgot_password.dart';
 import 'package:njc_cash_zone/features/dashboard/dashboard.dart';
 
@@ -19,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    _emailController.text = 'balamia@gmail.com';
+    _emailController.text = 'john@gmail.com';
   }
 
   @override
@@ -87,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: _isEmailFocused
-                            ? const Color(0xFF10B981)
+                            ? accentColor
                             : const Color(0xFFE5E7EB),
                         width: 2,
                       ),
@@ -106,7 +107,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 16,
                           color: Colors.grey[400],
                         ),
-                        border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 18,
@@ -141,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF10B981),
+                          color: accentColor,
                         ),
                       ),
                     ),
@@ -159,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: _isPasswordFocused
-                            ? const Color(0xFF10B981)
+                            ? accentColor
                             : const Color(0xFFE5E7EB),
                         width: 2,
                       ),
@@ -178,7 +178,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 16,
                           color: Colors.grey[400],
                         ),
-                        border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 18,
@@ -208,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: _handleLogin,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF10B981),
+                      backgroundColor: accentColor,
                       foregroundColor: Colors.white,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
@@ -229,7 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Don\'t Have An Account ?  ',
+                      'Don\'t have an account ?  ',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -245,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF10B981),
+                          color: accentColor,
                         ),
                       ),
                     ),

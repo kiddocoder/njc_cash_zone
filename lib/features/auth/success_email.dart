@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:njc_cash_zone/features/auth/authentification/login.dart';
+
 class SuccessScreen extends StatefulWidget {
   const SuccessScreen({super.key});
 
@@ -101,7 +103,12 @@ class _SuccessScreenState extends State<SuccessScreen>
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF10B981),

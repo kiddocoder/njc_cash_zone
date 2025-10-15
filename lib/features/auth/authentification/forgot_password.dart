@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/auth/otp_verification.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   width: 56,
                   height: 56,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF10B981),
+                    color: accentColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: IconButton(
@@ -95,7 +96,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: _isEmailFocused
-                            ? const Color(0xFF10B981)
+                            ? accentColor
                             : const Color(0xFFE5E7EB),
                         width: 2,
                       ),
@@ -114,7 +115,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           fontSize: 16,
                           color: Colors.grey[400],
                         ),
-                        border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 18,
@@ -137,7 +137,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF10B981),
+                      backgroundColor: accentColor,
                       foregroundColor: Colors.white,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
@@ -174,7 +174,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF10B981),
+                          color: accentColor,
                         ),
                       ),
                     ),

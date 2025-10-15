@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/features/widgets/floating_navbar.dart';
+import 'package:njc_cash_zone/features/widgets/floating_new_loan.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -27,10 +29,11 @@ class DashboardScreen extends StatelessWidget {
             ),
             Positioned(
               bottom: 16,
-              left: 16,
-              right: 16,
-              child: _buildFloatingNavBar(),
+              left: 10,
+              right: 10,
+              child: FloatingNavbar(activeIndex: 0),
             ),
+            Positioned(bottom: 100, right: 20, child: FloatingNewLoan()),
           ],
         ),
       ),
@@ -641,93 +644,6 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildFloatingNavBar() {
-    return Container(
-      height: 64,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(32),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 20,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildNavItem(
-            image: "assets/icons/home_svgrepo.png",
-            label: 'dashboard',
-            isActive: true,
-          ),
-          _buildNavItem(
-            image: "assets/icons/loan-round_svgrepo.png",
-            isActive: false,
-          ),
-          _buildNavItem(
-            image: "assets/icons/chats-chat-sms-talk_svgrepo.png",
-            isActive: false,
-          ),
-          _buildNavItem(
-            image: "assets/icons/history-round_svgrepo.png",
-            isActive: false,
-          ),
-          _buildNavItem(
-            image: "assets/icons/user_svgrepo.png",
-            isActive: false,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem({
-    required String? image,
-    String? label,
-    required bool isActive,
-  }) {
-    if (isActive && label != null) {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        decoration: BoxDecoration(
-          color: const Color(0xFF65B947).withOpacity(0.1),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image(
-              image: AssetImage(image!),
-              color: Color(0xFF65B947),
-              width: 20,
-            ),
-            const SizedBox(width: 6),
-            Text(
-              label,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: Image(
-        image: AssetImage(image!),
-        color: const Color(0xFF9CA3AF),
-        width: 20,
       ),
     );
   }
