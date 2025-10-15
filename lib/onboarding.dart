@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
-import 'package:njc_cash_zone/features/dashboard/dashboard.dart';
+import 'package:njc_cash_zone/features/auth/authentification/login.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -66,7 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       // Navigate to main app
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     }
   }
@@ -74,7 +74,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _skip() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const DashboardScreen()),
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
     );
   }
 
