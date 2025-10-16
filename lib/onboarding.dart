@@ -24,28 +24,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<OnboardingData> _pages = [
     OnboardingData(
-      image: 'assets/onboarding1.png',
+      image:
+          'assets/images/vecteezy_man-holding-scissors-and-cutting-line-for-the-ceremony_35439300.png',
       title: 'Get instant\naccess to loans',
       description:
           'Apply in minutes and get funds directly to\nyour eWallet — no paperwork, no stress.',
     ),
     OnboardingData(
-      image: 'assets/onboarding2.png',
+      image:
+          'assets/images/vecteezy_man-holding-scissors-and-cutting-line-for-the-ceremony_35439300.png',
       title: 'Always\nConnected',
       description:
           'Talk to our support team anytime through\nin-app chat. We\'re here 24/7.',
     ),
     OnboardingData(
-      image: 'assets/onboarding3.png',
-      title: 'Track Your\nProgress',
+      image:
+          'assets/images/vecteezy_man-holding-scissors-and-cutting-line-for-the-ceremony_35439300.png',
+      title: 'Safe & Reliable',
       description:
-          'Monitor your loan status and repayments\nin real-time with our intuitive dashboard.',
+          'Your identity and money are protected with top-level security and compliance.',
     ),
     OnboardingData(
-      image: 'assets/onboarding4.png',
-      title: 'Secure &\nReliable',
+      image:
+          'assets/images/vecteezy_man-holding-scissors-and-cutting-line-for-the-ceremony_35439300.png',
+      title: 'Join Us Today',
       description:
-          'Your data is protected with bank-level\nsecurity. Borrow with confidence.',
+          'Create your account and unlock smarter financial solutions tailored for you.',
     ),
   ];
 
@@ -118,7 +122,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   SizedBox(
-                    width: 86,
+                    width: 80,
                     child: ElevatedButton(
                       onPressed: _nextPage,
                       style: ElevatedButton.styleFrom(
@@ -198,13 +202,7 @@ class OnboardingPage extends StatelessWidget {
           Container(
             height: MediaQuery.of(context).size.height * 0.45,
             alignment: Alignment.center,
-            child: Image.asset(
-              data.image,
-              fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) {
-                return _buildPlaceholderIllustration();
-              },
-            ),
+            child: Image.asset(data.image, fit: BoxFit.contain),
           ),
           const Spacer(flex: 1),
           Text(
@@ -229,36 +227,6 @@ class OnboardingPage extends StatelessWidget {
             ),
           ),
           const Spacer(flex: 1),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPlaceholderIllustration() {
-    return Container(
-      width: 280,
-      height: 280,
-      decoration: BoxDecoration(
-        color: const Color(0xFFE8F5E9),
-        borderRadius: BorderRadius.circular(140),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Abstract blob shape
-          CustomPaint(size: const Size(280, 280), painter: BlobPainter()),
-          // Icon based on the page
-          Icon(
-            data.title.contains('instant')
-                ? Icons.bolt
-                : data.title.contains('Connected')
-                ? Icons.headset_mic
-                : data.title.contains('Track')
-                ? Icons.show_chart
-                : Icons.security,
-            size: 80,
-            color: accentColor,
-          ),
         ],
       ),
     );
