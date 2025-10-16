@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
-import 'package:njc_cash_zone/features/widgets/floating_navbar.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -55,12 +54,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ),
               ],
-            ),
-            Positioned(
-              bottom: 16,
-              left: 10,
-              right: 10,
-              child: FloatingNavbar(activeIndex: 3),
             ),
           ],
         ),

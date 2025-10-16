@@ -27,8 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       image:
           'assets/images/vecteezy_man-holding-scissors-and-cutting-line-for-the-ceremony_35439300.png',
       title: 'Get instant\naccess to loans',
-      description:
-          'Apply in minutes and get funds directly to\nyour eWallet — no paperwork, no stress.',
+      description: 'Apply in minutes and get funds directly, no stress.',
     ),
     OnboardingData(
       image:

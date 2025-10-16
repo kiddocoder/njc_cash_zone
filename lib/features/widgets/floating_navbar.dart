@@ -6,8 +6,13 @@ import 'package:njc_cash_zone/features/loans/loans_screen.dart';
 
 class FloatingNavbar extends StatelessWidget {
   final int activeIndex;
+  final ValueChanged<int> onTap;
 
-  const FloatingNavbar({super.key, required this.activeIndex});
+  const FloatingNavbar({
+    super.key,
+    required this.activeIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +68,7 @@ class FloatingNavbar extends StatelessWidget {
             image: item['icon'] as String,
             label: item['label'] as String,
             isActive: isActive,
-            onTap: () {
-              if (!isActive) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (_) => item['route'] as Widget),
-                );
-              }
-            },
+            onTap: () => onTap(index),
           );
         }),
       ),

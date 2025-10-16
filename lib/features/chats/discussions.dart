@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/chats/chat_details.dart';
-import 'package:njc_cash_zone/features/widgets/floating_navbar.dart';
 
 class DiscussionsScreen extends StatelessWidget {
   const DiscussionsScreen({super.key});
@@ -113,12 +112,6 @@ class DiscussionsScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          Positioned(
-            bottom: 16,
-            left: 10,
-            right: 10,
-            child: FloatingNavbar(activeIndex: 2),
           ),
           Positioned(bottom: 100, right: 20, child: _buildFAB()),
         ],

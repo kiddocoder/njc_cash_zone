@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:njc_cash_zone/core/theme/app_theme.dart';
+import 'package:njc_cash_zone/features/main_layout.dart';
 import 'package:njc_cash_zone/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
   runApp(const MyApp());
 }
 
@@ -13,11 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Loan Management System',
+      title: 'NJC Cash Zone',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: AppTheme.themeMode,
       home: const SplashScreen(),
+      routes: {'/main': (context) => const MainLayout()},
     );
   }
 }

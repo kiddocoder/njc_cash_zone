@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:njc_cash_zone/features/widgets/floating_navbar.dart';
 import 'package:njc_cash_zone/features/widgets/floating_new_loan.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -27,12 +26,7 @@ class DashboardScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              bottom: 16,
-              left: 10,
-              right: 10,
-              child: FloatingNavbar(activeIndex: 0),
-            ),
+
             Positioned(bottom: 100, right: 20, child: FloatingNewLoan()),
           ],
         ),

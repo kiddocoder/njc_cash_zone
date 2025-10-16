@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/auth/authentification/forgot_password.dart';
-import 'package:njc_cash_zone/features/dashboard/dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,10 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _handleLogin() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const DashboardScreen()),
-    );
+    Navigator.pushNamed(context, "/main");
   }
 
   @override
