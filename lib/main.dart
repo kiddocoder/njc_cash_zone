@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:njc_cash_zone/core/theme/app_theme.dart';
+import 'package:njc_cash_zone/features/loans/loan_details.dart';
 import 'package:njc_cash_zone/features/main_layout.dart';
 import 'package:njc_cash_zone/splash_screen.dart';
 
@@ -24,7 +25,10 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: AppTheme.themeMode,
       home: const SplashScreen(),
-      routes: {'/main': (context) => const MainLayout()},
+      routes: {
+        '/main': (context) => const MainLayout(),
+        '/loans-details': (context) => const LoanDetailsScreen(),
+      },
     );
   }
 }

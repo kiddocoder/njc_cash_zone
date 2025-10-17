@@ -13,41 +13,48 @@ class DiscussionsScreen extends StatelessWidget {
           Column(
             children: [
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 60, 20, 24),
-                decoration: const BoxDecoration(color: accentColor),
+                padding: const EdgeInsets.fromLTRB(20, 50, 20, 18),
+                decoration: const BoxDecoration(color: whiteColor),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Discussions',
+                      'Chats',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
-                        color: whiteColor,
+                        color: blackColor,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 14),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: BoxDecoration(
                         color: whiteColor,
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.search, color: grayColor, size: 22),
-                          const SizedBox(width: 12),
-                          const Expanded(
+                          Expanded(
                             child: TextField(
+                              style: const TextStyle(fontSize: 14),
                               decoration: InputDecoration(
-                                hintText: 'Search a discusion',
-                                hintStyle: TextStyle(
+                                hintText: 'Search a discussion',
+                                hintStyle: const TextStyle(
                                   color: grayColor,
-                                  fontSize: 15,
+                                  fontSize: 13,
                                 ),
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.symmetric(
-                                  vertical: 14,
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE5E7EB),
+                                    width: 0,
+                                  ),
+                                ),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 10,
                                 ),
                               ),
                             ),
@@ -60,7 +67,7 @@ class DiscussionsScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                  padding: const EdgeInsets.only(bottom: 100),
+                  padding: const EdgeInsets.only(bottom: 90),
                   children: [
                     _buildChatItem(
                       context: context,
@@ -73,7 +80,7 @@ class DiscussionsScreen extends StatelessWidget {
                     _buildChatItem(
                       context: context,
                       name: 'Jerome Bell',
-                      message: 'Let talk about it next frida',
+                      message: 'Let’s talk about it next Friday',
                       time: '03:15',
                       unreadCount: 4,
                       avatar: 'assets/jerome.jpg',
@@ -81,7 +88,7 @@ class DiscussionsScreen extends StatelessWidget {
                     _buildChatItem(
                       context: context,
                       name: 'Ralph Edwards',
-                      message: 'Send your cv in pdf',
+                      message: 'Send your CV in PDF',
                       time: '22:23',
                       unreadCount: 2,
                       avatar: 'assets/ralph.jpg',
@@ -89,15 +96,15 @@ class DiscussionsScreen extends StatelessWidget {
                     _buildChatItem(
                       context: context,
                       name: 'Jhon Doe',
-                      message: 'we received your docs',
+                      message: 'We received your docs',
                       time: '2d ago',
                       avatar: 'assets/jhon.jpg',
                     ),
                     _buildChatItem(
                       context: context,
                       name: 'Mr Brandon',
-                      message: 'Let discuss about it',
-                      time: 'Yestarday',
+                      message: 'Let’s discuss about it',
+                      time: 'Yesterday',
                       avatar: 'assets/brandon.jpg',
                     ),
                     _buildChatItem(
@@ -135,15 +142,15 @@ class DiscussionsScreen extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(
           children: [
             CircleAvatar(
-              radius: 32,
+              radius: 26,
               backgroundColor: lightGray,
-              child: Icon(Icons.person, color: darkGray, size: 32),
+              child: Icon(Icons.person, color: darkGray, size: 26),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,29 +158,33 @@ class DiscussionsScreen extends StatelessWidget {
                   Text(
                     name,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 14.5,
                       fontWeight: FontWeight.w700,
                       color: blackColor,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 3),
                   Text(
                     message,
-                    style: const TextStyle(fontSize: 14, color: grayColor),
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: grayColor,
+                      height: 1.2,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
                   time,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11,
                     color: unreadCount != null ? accentColor : grayColor,
                     fontWeight: unreadCount != null
                         ? FontWeight.w600
@@ -181,22 +192,22 @@ class DiscussionsScreen extends StatelessWidget {
                   ),
                 ),
                 if (unreadCount != null) ...[
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   Container(
-                    padding: const EdgeInsets.all(6),
+                    padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       color: accentColor,
                       shape: BoxShape.circle,
                     ),
                     constraints: const BoxConstraints(
-                      minWidth: 24,
-                      minHeight: 24,
+                      minWidth: 20,
+                      minHeight: 20,
                     ),
                     child: Center(
                       child: Text(
                         unreadCount.toString(),
                         style: const TextStyle(
-                          fontSize: 11,
+                          fontSize: 10,
                           fontWeight: FontWeight.w700,
                           color: whiteColor,
                         ),
@@ -214,20 +225,20 @@ class DiscussionsScreen extends StatelessWidget {
 
   Widget _buildFAB() {
     return Container(
-      width: 64,
-      height: 64,
+      width: 56,
+      height: 56,
       decoration: BoxDecoration(
         color: accentColor,
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: accentColor.withOpacity(0.3),
-            blurRadius: 16,
+            color: accentColor.withOpacity(0.25),
+            blurRadius: 12,
             offset: const Offset(0, 4),
           ),
         ],
       ),
-      child: const Icon(Icons.chat_bubble, color: whiteColor, size: 28),
+      child: const Icon(Icons.chat_bubble, color: whiteColor, size: 24),
     );
   }
 }

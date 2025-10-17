@@ -100,51 +100,54 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: _skip,
-                    child: const Text(
-                      'Skip',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: accentColor,
-                      ),
-                    ),
-                  ),
-                  Row(
-                    children: List.generate(
-                      _pages.length,
-                      (index) => _buildDot(index),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 80,
-                    child: ElevatedButton(
-                      onPressed: _nextPage,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: accentColor,
-                        foregroundColor: whiteColor,
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: Text(
-                        _currentPage == _pages.length - 1
-                            ? 'Get Started'
-                            : 'Next',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
+              child: Align(
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: _skip,
+                      child: const Text(
+                        'Skip',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: accentColor,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Row(
+                      children: List.generate(
+                        _pages.length,
+                        (index) => _buildDot(index),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 80,
+                      child: ElevatedButton(
+                        onPressed: _nextPage,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: accentColor,
+                          foregroundColor: whiteColor,
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Text(
+                          _currentPage == _pages.length - 1
+                              ? 'Get Started'
+                              : 'Next',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

@@ -7,8 +7,8 @@ class FloatingNewLoan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 64,
-      height: 64,
+      width: 56,
+      height: 56,
       decoration: BoxDecoration(
         color: accentColor,
         borderRadius: BorderRadius.circular(32),

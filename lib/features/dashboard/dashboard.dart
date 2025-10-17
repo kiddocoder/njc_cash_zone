@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:njc_cash_zone/features/dashboard/recent_loans.dart';
+import 'package:njc_cash_zone/features/dashboard/widgets/action_button.dart';
 import 'package:njc_cash_zone/features/widgets/floating_new_loan.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -20,14 +22,14 @@ class DashboardScreen extends StatelessWidget {
                   const SizedBox(height: 24),
                   _buildActionButtons(),
                   const SizedBox(height: 32),
-                  _buildRecentLoans(),
+                  RecentLoans(),
                   const SizedBox(height: 24),
                   _buildRecentActivities(),
                 ],
               ),
             ),
 
-            Positioned(bottom: 100, right: 20, child: FloatingNewLoan()),
+            Positioned(bottom: 105, right: 20, child: FloatingNewLoan()),
           ],
         ),
       ),
@@ -138,9 +140,9 @@ class DashboardScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    'R 3,200.00',
+                    'R 3,150,000.00',
                     style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       height: 1.2,
@@ -180,7 +182,7 @@ class DashboardScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Loan ID',
+                      'Account ID',
                       style: TextStyle(
                         fontSize: 11,
                         color: Colors.white.withOpacity(0.8),
@@ -188,7 +190,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     const Text(
-                      '*** *** 250',
+                      '**** **** 1250',
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.white,
@@ -198,38 +200,39 @@ class DashboardScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Status',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: Colors.white.withOpacity(0.8),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: Colors.white.withOpacity(0.4),
-                          width: 1,
-                        ),
-                      ),
-                      child: const Text(
-                        'active',
-                        style: TextStyle(fontSize: 11, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+              // Expanded(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text(
+              //         'Status',
+              //         style: TextStyle(
+              //           fontSize: 11,
+              //           color: Colors.white.withOpacity(0.8),
+              //         ),
+              //       ),
+              //       const SizedBox(height: 4),
+              //       Container(
+              //         padding: const EdgeInsets.symmetric(
+              //           horizontal: 10,
+              //           vertical: 4,
+              //         ),
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(12),
+              //           border: Border.all(
+              //             color: Colors.white.withOpacity(0.4),
+              //             width: 1,
+              //           ),
+              //         ),
+              //         child: const Text(
+              //           'active',
+              //           style: TextStyle(fontSize: 11, color: Colors.white),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               SizedBox(
                 width: 130,
                 child: ElevatedButton(
@@ -265,244 +268,29 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildActionButtons() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildActionButton(
-            icon: Icons.trending_up_outlined,
-            label: 'Request Loan',
+          ActionButton(
+            icon: "assets/icons/map-pinned.png",
+            label: 'Agencies',
             color: const Color(0xFF65B947),
           ),
-          _buildActionButton(
-            icon: Icons.description_outlined,
+          ActionButton(
+            icon: "assets/icons/documents_svgrepo.com.svg",
             label: 'Upload Docs',
             color: const Color(0xFF65B947),
           ),
-          _buildActionButton(
-            icon: Icons.chat_bubble_outline,
+          ActionButton(
+            icon: "assets/icons/chats-chat-sms-talk_svgrepo.com.svg",
             label: 'Chat Support',
             color: const Color(0xFF65B947),
           ),
-          _buildActionButton(
-            icon: Icons.update,
+          ActionButton(
+            icon: "assets/icons/history-round_svgrepo.com.svg",
             label: 'Loan History',
             color: const Color(0xFF65B947),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionButton({
-    required IconData icon,
-    required String label,
-    required Color color,
-  }) {
-    return SizedBox(
-      width: 80,
-      child: Column(
-        children: [
-          Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: Colors.green.withOpacity(0.2),
-                width: 1,
-              ),
-            ),
-            child: Icon(icon, color: color, size: 24),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 11,
-              color: Color(0xFF6B7280),
-              height: 1.2,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRecentLoans() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Recent loans',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: const Size(50, 30),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: const Text(
-                  'See All',
-                  style: TextStyle(
-                    color: Color(0xFF65B947),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFFFFF),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.green.withOpacity(0.2),
-                      width: 1,
-                    ),
-                  ),
-                  child: Image(
-                    image: AssetImage("assets/icons/borrow_svgrepo.png"),
-                    color: Color(0xFF65B947),
-                    width: 24,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Student loan',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      SizedBox(height: 2),
-                      Text(
-                        '3 months',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFF6B7280),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 48,
-                  height: 48,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: CircularProgressIndicator(
-                          value: 0.52,
-                          strokeWidth: 4,
-                          backgroundColor: const Color(0xFFE5E7EB),
-                          valueColor: const AlwaysStoppedAnimation<Color>(
-                            Color(0xFF65B947),
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        '52%',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF65B947),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Divider(height: 12),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF0FDF4),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'R 1350.00',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black87,
-                  ),
-                ),
-                const Text(
-                  'May 5, 2025',
-                  style: TextStyle(fontSize: 12, color: Color(0xFF6B7280)),
-                ),
-                SizedBox(
-                  width: 100,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF65B947),
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 10,
-                      ),
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: const Text(
-                      'Pay off',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
         ],
       ),

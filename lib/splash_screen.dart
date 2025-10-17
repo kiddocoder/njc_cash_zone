@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
-import 'package:njc_cash_zone/onboarding.dart';
+// import 'package:njc_cash_zone/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -45,10 +45,11 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const Onboarding()),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (_) => const Onboarding()),
+      // );
+      Navigator.pushReplacementNamed(context, "/main");
     });
   }
 

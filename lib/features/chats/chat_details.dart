@@ -28,17 +28,17 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(16, 50, 16, 16),
-            decoration: const BoxDecoration(color: accentColor),
+            decoration: const BoxDecoration(color: whiteColor),
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.arrow_back, color: whiteColor),
+                  icon: const Icon(Icons.arrow_back, color: blackColor),
                   onPressed: () => Navigator.pop(context),
                 ),
                 const SizedBox(width: 8),
                 CircleAvatar(
                   radius: 24,
-                  backgroundColor: whiteColor,
+                  backgroundColor: grayColor,
                   child: Icon(Icons.person, color: accentColor, size: 28),
                 ),
                 const SizedBox(width: 12),
@@ -51,7 +51,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: whiteColor,
+                          color: blackColor,
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -59,7 +59,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                         'online',
                         style: TextStyle(
                           fontSize: 13,
-                          color: whiteColor,
+                          color: accentColor,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -69,7 +69,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 IconButton(
                   icon: const Icon(
                     Icons.call_outlined,
-                    color: whiteColor,
+                    color: blackColor,
                     size: 26,
                   ),
                   onPressed: () {},
