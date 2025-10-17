@@ -271,7 +271,7 @@ class DashboardScreen extends StatelessWidget {
             amount: '+R 5,000.00',
             amountColor: const Color(0xFF65B947),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 5),
           _buildActivityItem(
             icon: Icons.trending_down,
             title: 'Loan Refunded',
@@ -279,7 +279,7 @@ class DashboardScreen extends StatelessWidget {
             amount: '-R 5,000.00',
             amountColor: const Color(0xFFE27878),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 5),
           _buildActivityItem(
             icon: Icons.monetization_on,
             title: 'Payment Received',
@@ -287,7 +287,7 @@ class DashboardScreen extends StatelessWidget {
             amount: '+R 2,000.00',
             amountColor: const Color(0xFF65B947),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 5),
           _buildActivityItem(
             icon: Icons.trending_up,
             title: 'Loan Request Approved',
@@ -295,7 +295,7 @@ class DashboardScreen extends StatelessWidget {
             amount: '+R 5,000.00',
             amountColor: const Color(0xFF65B947),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 5),
           _buildActivityItem(
             icon: Icons.trending_down,
             title: 'Loan Refunded',
@@ -303,7 +303,7 @@ class DashboardScreen extends StatelessWidget {
             amount: '-R 5,000.00',
             amountColor: const Color(0xFFE27878),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 5),
           _buildActivityItem(
             icon: Icons.monetization_on,
             title: 'Payment Received',
@@ -387,8 +387,6 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-
-  // Keep all your other _buildLoanCard, _buildActionButtons, etc. unchanged
 }
 
 /// Sticky header delegate

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/features/dashboard/widgets/customer_drawer.dart';
+import 'package:njc_cash_zone/features/widgets/user_avatar.dart';
 
 class Header extends StatefulWidget {
   const Header({super.key});
@@ -86,27 +87,7 @@ class _HeaderState extends State<Header> with SingleTickerProviderStateMixin {
         children: [
           GestureDetector(
             onTap: _showDrawer,
-            child: Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey[300],
-              ),
-              child: ClipOval(
-                child: Image.asset(
-                  'assets/images/profile.jpg',
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Icon(
-                      Icons.person,
-                      color: Colors.white,
-                      size: 22,
-                    );
-                  },
-                ),
-              ),
-            ),
+            child: UserAvatar(image: "assets/images/profile.jpg"),
           ),
           const SizedBox(width: 10),
           const Expanded(

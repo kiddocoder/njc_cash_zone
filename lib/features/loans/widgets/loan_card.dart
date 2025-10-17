@@ -8,6 +8,7 @@ class LoanCard extends StatelessWidget {
   final String duration;
   final String amount;
   final String date;
+  final bool? isApproved;
   final double progress;
   final VoidCallback? onPayOff;
 
@@ -19,6 +20,7 @@ class LoanCard extends StatelessWidget {
     required this.duration,
     required this.amount,
     required this.date,
+    this.isApproved,
     required this.progress,
     this.onPayOff,
   });
@@ -74,6 +76,7 @@ class LoanCard extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 SizedBox(
                   width: 40,
                   height: 40,

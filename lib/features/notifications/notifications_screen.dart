@@ -41,7 +41,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     amount: '+R 5,000.00',
                     amountColor: accentColor,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 5),
                   _buildNotificationItem(
                     icon: Icons.chat_bubble_outline,
                     iconColor: accentColor,
@@ -50,7 +50,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     badge: 'unread',
                     badgeColor: redColor,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 5),
                   _buildNotificationItem(
                     icon: Icons.notifications_active_outlined,
                     iconColor: accentColor,
@@ -59,7 +59,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     amount: '-R 1,200.00',
                     amountColor: redColor,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 5),
                   _buildNotificationItem(
                     icon: Icons.settings_outlined,
                     iconColor: accentColor,
@@ -83,8 +83,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       child: Row(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               color: accentColor,
               borderRadius: BorderRadius.circular(16),
@@ -99,7 +99,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           const Text(
             'Notifications',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.w700,
               color: blackColor,
             ),
@@ -126,8 +126,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
+                  horizontal: 10,
+                  vertical: 6,
                 ),
                 decoration: BoxDecoration(
                   color: isSelected ? accentColor : whiteColor,
@@ -137,13 +137,26 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     width: 1.5,
                   ),
                 ),
-                child: Text(
-                  filter,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: isSelected ? whiteColor : blackColor,
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      filter,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isSelected ? whiteColor : blackColor,
+                      ),
+                    ),
+                    SizedBox(width: 4),
+                    Text(
+                      '(12)',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: isSelected ? whiteColor : blackColor,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -172,8 +185,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       child: Row(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               color: iconColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
@@ -188,7 +201,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 15,
+                    fontSize: 13,
                     fontWeight: FontWeight.w600,
                     color: blackColor,
                   ),
@@ -196,7 +209,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 const SizedBox(height: 4),
                 Text(
                   time,
-                  style: const TextStyle(fontSize: 12, color: grayColor),
+                  style: const TextStyle(fontSize: 11, color: grayColor),
                 ),
               ],
             ),

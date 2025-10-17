@@ -6,5 +6,5 @@ class AppTheme {
   static ThemeData light = lightTheme;
   static ThemeData dark = darkTheme;
 
-  static ThemeMode themeMode = ThemeMode.system; // light, dark, or system
+  static ThemeMode themeMode = ThemeMode.light; // light, dark, or system
 }
