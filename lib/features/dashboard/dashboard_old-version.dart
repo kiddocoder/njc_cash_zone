@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/features/dashboard/recent_loans.dart';
 import 'package:njc_cash_zone/features/dashboard/widgets/action_button.dart';
-import 'package:njc_cash_zone/features/dashboard/widgets/header.dart';
 import 'package:njc_cash_zone/features/widgets/floating_new_loan.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -13,38 +12,107 @@ class DashboardScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            CustomScrollView(
-              slivers: [
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _StickyHeaderDelegate(
-                    child: Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Header(),
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildLoanCard(),
-                      const SizedBox(height: 24),
-                      _buildActionButtons(),
-                      const SizedBox(height: 24),
-                      RecentLoans(),
-                      const SizedBox(height: 24),
-                      _buildRecentTransactions(),
-                      const SizedBox(height: 180),
-                    ],
-                  ),
-                ),
-              ],
+            SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 165),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildHeader(),
+                  _buildLoanCard(),
+                  const SizedBox(height: 24),
+                  _buildActionButtons(),
+                  const SizedBox(height: 24),
+                  RecentLoans(),
+                  const SizedBox(height: 24),
+                  _buildRecentActivities(),
+                ],
+              ),
             ),
+
             Positioned(bottom: 105, right: 20, child: FloatingNewLoan()),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+      child: Row(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey[300],
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/profile.jpg',
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 24,
+                  );
+                },
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Hi, Kiddo',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 2),
+                Text(
+                  'Ready to manage your loans today?',
+                  style: TextStyle(fontSize: 12, color: Color(0xFF6B7280)),
+                ),
+              ],
+            ),
+          ),
+          Stack(
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Icon(
+                  Icons.notifications_none,
+                  color: Color(0xFF6B7280),
+                  size: 22,
+                ),
+              ),
+              Positioned(
+                right: 10,
+                top: 10,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF65B947),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -229,7 +297,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildRecentTransactions() {
+  Widget _buildRecentActivities() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -238,7 +306,7 @@ class DashboardScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Recent Transactions',
+                'Recent Activities',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -273,43 +341,10 @@ class DashboardScreen extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _buildActivityItem(
-            icon: Icons.trending_down,
-            title: 'Loan Refunded',
+            icon: Icons.chat_bubble_outline,
+            title: 'Message from Support',
             time: 'Today 1:53 PM',
-            amount: '-R 5,000.00',
-            amountColor: const Color(0xFFE27878),
-          ),
-          const SizedBox(height: 12),
-          _buildActivityItem(
-            icon: Icons.monetization_on,
-            title: 'Payment Received',
-            time: 'Today 1:53 PM',
-            amount: '+R 2,000.00',
-            amountColor: const Color(0xFF65B947),
-          ),
-          const SizedBox(height: 12),
-          _buildActivityItem(
-            icon: Icons.trending_up,
-            title: 'Loan Request Approved',
-            time: 'Today 1:53 PM',
-            amount: '+R 5,000.00',
-            amountColor: const Color(0xFF65B947),
-          ),
-          const SizedBox(height: 12),
-          _buildActivityItem(
-            icon: Icons.trending_down,
-            title: 'Loan Refunded',
-            time: 'Today 1:53 PM',
-            amount: '-R 5,000.00',
-            amountColor: const Color(0xFFE27878),
-          ),
-          const SizedBox(height: 12),
-          _buildActivityItem(
-            icon: Icons.monetization_on,
-            title: 'Payment Received',
-            time: 'Today 1:53 PM',
-            amount: '+R 2,000.00',
-            amountColor: const Color(0xFF65B947),
+            badge: 'unread',
           ),
         ],
       ),
@@ -387,28 +422,4 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
-
-  // Keep all your other _buildLoanCard, _buildActionButtons, etc. unchanged
-}
-
-/// Sticky header delegate
-class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-  _StickyHeaderDelegate({required this.child});
-
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return child;
-  }
-
-  @override
-  double get maxExtent => 70;
-  @override
-  double get minExtent => 70;
-  @override
-  bool shouldRebuild(covariant _StickyHeaderDelegate oldDelegate) => false;
 }

@@ -23,7 +23,9 @@ class FloatingNewLoan extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, '/loan-request');
+          },
           borderRadius: BorderRadius.circular(32),
           child: const Icon(Icons.add, color: whiteColor, size: 32),
         ),

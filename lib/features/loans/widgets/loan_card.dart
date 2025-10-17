@@ -31,7 +31,7 @@ class LoanCard extends StatelessWidget {
         Navigator.pushNamed(context, '/loans-details');
       },
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(16),
@@ -105,8 +105,9 @@ class LoanCard extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 12),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              // padding: const EdgeInsets.symmetric(vertical: 16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
               ),

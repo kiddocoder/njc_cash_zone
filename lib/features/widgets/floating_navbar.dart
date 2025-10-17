@@ -37,11 +37,11 @@ class FloatingNavbar extends StatelessWidget {
         'label': 'History',
         'route': const HistoryScreen(),
       },
-      {
-        'icon': "assets/icons/user_svgrepo.png",
-        'label': 'Profile',
-        'route': const DashboardScreen(),
-      },
+      // {
+      //   'icon': "assets/icons/user_svgrepo.png",
+      //   'label': 'Profile',
+      //   'route': const DashboardScreen(),
+      // },
     ];
 
     return Container(

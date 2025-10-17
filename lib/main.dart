@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:njc_cash_zone/core/theme/app_theme.dart';
 import 'package:njc_cash_zone/features/loans/loan_details.dart';
 import 'package:njc_cash_zone/features/main_layout.dart';
+import 'package:njc_cash_zone/features/notifications/notifications_screen.dart';
 import 'package:njc_cash_zone/splash_screen.dart';
+import 'features/loans/loan_request/loan_request_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +30,18 @@ class MyApp extends StatelessWidget {
       routes: {
         '/main': (context) => const MainLayout(),
         '/loans-details': (context) => const LoanDetailsScreen(),
+        '/loan-request': (context) => LoanRequestScreen(
+          agency: Agency(
+            name: 'Agency Johannesburg Central',
+            address: '123 Commissioner Street, Johannesburg CBD',
+            distance: '2.1 km away',
+            status: 'Open Now (closes 17:00)',
+            rating: 4.0,
+            lat: -26.2041,
+            lng: 28.0473,
+          ),
+        ),
+        '/notifications': (context) => const NotificationsScreen(),
       },
     );
   }

@@ -3,7 +3,7 @@ import 'package:njc_cash_zone/features/chats/discussions.dart';
 import 'package:njc_cash_zone/features/dashboard/dashboard.dart';
 import 'package:njc_cash_zone/features/history/history_screen.dart';
 import 'package:njc_cash_zone/features/loans/loans_screen.dart';
-import 'package:njc_cash_zone/features/profile/profile_screen.dart';
+// import 'package:njc_cash_zone/features/profile/profile_screen.dart';
 import 'package:njc_cash_zone/features/states/globals.dart';
 import 'package:njc_cash_zone/features/widgets/floating_navbar.dart';
 
@@ -24,7 +24,7 @@ class _MainLayoutState extends State<MainLayout> {
     LoansScreen(),
     DiscussionsScreen(),
     HistoryScreen(),
-    ProfileScreen(),
+    // ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
