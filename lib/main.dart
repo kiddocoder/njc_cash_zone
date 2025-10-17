@@ -1,42 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'features/agencies/agencies_maps.dart';
+import 'package:njc_cash_zone/features/agencies/agencies_maps.dart';
 import 'core/theme/app_theme.dart';
 import 'features/loans/loan_details.dart';
 import 'features/main_layout.dart';
 import 'features/notifications/notifications_screen.dart';
-// import 'splash_screen.dart';
+import 'splash_screen.dart';
 import 'features/loans/loan_request/loan_request_screen.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
-
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
-
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Android init settings
-  const AndroidInitializationSettings initializationSettingsAndroid =
-      AndroidInitializationSettings('@mipmap/ic_launcher');
-
-  // Combine for all platforms
-  const InitializationSettings initializationSettings = InitializationSettings(
-    android: initializationSettingsAndroid,
-  );
-
-  // Initialize
-  await flutterLocalNotificationsPlugin.initialize(
-    initializationSettings,
-    onDidReceiveNotificationResponse: (response) {
-      debugPrint("Notification tapped: ${response.payload}");
-    },
-  );
-
   runApp(const MyApp());
 }
 
@@ -51,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: AppTheme.themeMode,
-      home: const AgenciesMapScreen(),
+      home: const SplashScreen(),
       routes: {
         '/main': (context) => const MainLayout(),
         '/loans-details': (context) => const LoanDetailsScreen(),
@@ -67,6 +43,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         '/notifications': (context) => const NotificationsScreen(),
+        '/agences-maps': (context) => const AgenciesMapScreen(),
       },
     );
   }

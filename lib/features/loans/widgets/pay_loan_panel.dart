@@ -2,15 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
 import 'package:njc_cash_zone/features/loans/widgets/pay_option.dart';
 
-import 'package:njc_cash_zone/services/notifications/show_notification.dart';
-
 class PayLoanPanel extends StatelessWidget {
   const PayLoanPanel({super.key});
-
-  Future<void> _makePayment() async {
-    // After successful payment
-    await showPaymentNotification();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -243,7 +236,7 @@ class PayLoanPanel extends StatelessWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () => {_makePayment()}, // process payment
+                  onPressed: () => {}, // process payment
                   style: ElevatedButton.styleFrom(
                     backgroundColor: accentColor,
                     foregroundColor: whiteColor,

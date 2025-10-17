@@ -24,7 +24,7 @@ class FloatingNewLoan extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/loan-request');
+            Navigator.pushNamed(context, '/agences-maps');
           },
           borderRadius: BorderRadius.circular(32),
           child: const Icon(Icons.add, color: whiteColor, size: 32),
