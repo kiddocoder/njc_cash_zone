@@ -74,10 +74,10 @@ class DashboardScreen extends StatelessWidget {
                   Text(
                     'R 3,150,000.00',
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      height: 1.2,
+                      height: 1,
                     ),
                   ),
                   SizedBox(height: 4),
@@ -206,7 +206,7 @@ class DashboardScreen extends StatelessWidget {
         children: [
           ActionButton(
             icon: "assets/icons/map-pinned.png",
-            label: 'Agencies',
+            label: 'Near agencies',
             color: const Color(0xFF65B947),
           ),
           ActionButton(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:njc_cash_zone/core/constants/colors.dart';
-import 'package:njc_cash_zone/features/loans/loan_request/loan_success_request.dart';
+import 'package:njc_cash_zone/features/loans/loan_request/loan_payment_methods.dart';
 
 class Agency {
   final String name;
@@ -62,7 +62,6 @@ class _RequestLoanScreenState extends State<LoanRequestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -474,14 +473,20 @@ class _RequestLoanScreenState extends State<LoanRequestScreen> {
         child: ElevatedButton(
           onPressed: _isInfoCorrect
               ? () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => LoanSuccessRequest(
+                  //       loanType: _selectedLoanType,
+                  //       amount: _loanAmount,
+                  //       period: _selectedPeriod,
+                  //     ),
+                  //   ),
+                  // );
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoanSuccessRequest(
-                        loanType: _selectedLoanType,
-                        amount: _loanAmount,
-                        period: _selectedPeriod,
-                      ),
+                      builder: (context) => LoanPaymentMethods(),
                     ),
                   );
                 }

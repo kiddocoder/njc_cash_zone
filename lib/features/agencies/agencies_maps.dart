@@ -5,184 +5,187 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'widgets/select_agency_panel.dart';
 
 // Agencies Map Screen
-class AgenciesMapScreen extends StatefulWidget {
+class AgenciesMapScreen extends StatelessWidget {
   const AgenciesMapScreen({super.key});
 
   @override
-  State<AgenciesMapScreen> createState() => _AgenciesMapScreenState();
-}
-
-class _AgenciesMapScreenState extends State<AgenciesMapScreen> {
-  late Agency _selectedAgency;
-  final TextEditingController _searchController = TextEditingController();
-  final PanelController _pc = PanelController();
-
-  final List<Agency> agencies = [
-    Agency(
-      name: 'Agency Johannesburg Central',
-      address: '123 Commissioner Street, Johannesburg CBD',
-      distance: '2.1 km away',
-      status: 'Open Now (closes 17:00)',
-      rating: 4.0,
-      lat: -26.2041,
-      lng: 28.0473,
-    ),
-    Agency(
-      name: 'Agency Sandton',
-      address: '45 Rivonia Road, Sandton',
-      distance: '5.3 km away',
-      status: 'Open Now (closes 18:00)',
-      rating: 4.5,
-      lat: -26.1076,
-      lng: 28.0567,
-    ),
-    Agency(
-      name: 'Agency Rosebank',
-      address: '12 Oxford Road, Rosebank',
-      distance: '3.8 km away',
-      status: 'Open Now (closes 17:30)',
-      rating: 4.2,
-      lat: -26.1464,
-      lng: 28.0436,
-    ),
-  ];
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  void _selectAgency(Agency agency) {
-    setState(() {
-      _selectedAgency = agency;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SlidingUpPanel(
-          controller: _pc,
-          minHeight: 0,
-          maxHeight: 650,
-          backdropEnabled: true,
-          border: const Border(
-            top: BorderSide(color: Color(0xFFE5E7EB), width: 1),
-          ),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
-          ),
-          panel: SelectAgencyPanel(agency: _selectedAgency),
-          body: Column(
-            children: [
-              // Map Background (Simulated)
-              Container(
-                decoration: const BoxDecoration(color: Color(0xFFF0F0F0)),
-                child: CustomPaint(painter: MapPainter(), size: Size.infinite),
-              ),
-
-              // Agency Markers
-              ...agencies.map((agency) => _buildMarker(agency)),
-
-              // Search Bar
-              Positioned(
-                top: 50,
-                left: 16,
-                right: 16,
-                child: Row(
-                  children: [
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: whiteColor,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: blackColor.withOpacity(0.1),
-                            blurRadius: 8,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back, color: blackColor),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          color: whiteColor,
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: blackColor.withOpacity(0.1),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: TextField(
-                          controller: _searchController,
-                          decoration: InputDecoration(
-                            hintText: 'Enter the agency name...',
-                            hintStyle: TextStyle(
-                              color: grayColor,
-                              fontSize: 14,
-                            ),
-                            border: InputBorder.none,
-                            icon: Icon(Icons.search, color: grayColor),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 14,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+    final ValueNotifier<Agency> selectedAgency = ValueNotifier(
+      Agency(
+        name: 'Agency Johannesburg Central',
+        address: '123 Commissioner Street, Johannesburg CBD',
+        distance: '2.1 km away',
+        status: 'Open Now (closes 17:00)',
+        rating: 4.0,
+        lat: -26.2041,
+        lng: 28.0473,
       ),
     );
-  }
 
-  Widget _buildMarker(Agency agency) {
-    final isSelected = _selectedAgency.name == agency.name;
+    final TextEditingController searchController = TextEditingController();
+    final PanelController panelController = PanelController();
 
-    return Positioned(
-      top: 200 + agencies.indexOf(agency) * 80.0,
-      left: 50 + (agencies.indexOf(agency) % 3) * 100.0,
-      child: GestureDetector(
-        onTap: () => _selectAgency(agency),
-        child: Column(
-          children: [
-            Container(
-              width: isSelected ? 60 : 50,
-              height: isSelected ? 60 : 50,
-              decoration: BoxDecoration(
-                color: isSelected ? accentColor : accentColor.withOpacity(0.8),
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: accentColor.withOpacity(0.3),
-                    blurRadius: isSelected ? 12 : 8,
-                    offset: const Offset(0, 4),
+    // final List<Agency> agencies = [
+    //   Agency(
+    //     name: 'Agency Johannesburg Central',
+    //     address: '123 Commissioner Street, Johannesburg CBD',
+    //     distance: '2.1 km away',
+    //     status: 'Open Now (closes 17:00)',
+    //     rating: 4.0,
+    //     lat: -26.2041,
+    //     lng: 28.0473,
+    //   ),
+    //   Agency(
+    //     name: 'Agency Sandton',
+    //     address: '45 Rivonia Road, Sandton',
+    //     distance: '5.3 km away',
+    //     status: 'Open Now (closes 18:00)',
+    //     rating: 4.5,
+    //     lat: -26.1076,
+    //     lng: 28.0567,
+    //   ),
+    //   Agency(
+    //     name: 'Agency Rosebank',
+    //     address: '12 Oxford Road, Rosebank',
+    //     distance: '3.8 km away',
+    //     status: 'Open Now (closes 17:30)',
+    //     rating: 4.2,
+    //     lat: -26.1464,
+    //     lng: 28.0436,
+    //   ),
+    // ];
+
+    return Scaffold(
+      body: SafeArea(
+        child: ValueListenableBuilder<Agency>(
+          valueListenable: selectedAgency,
+          builder: (context, agency, _) {
+            return SlidingUpPanel(
+              controller: panelController,
+              minHeight: 0,
+              maxHeight: 420,
+              backdropEnabled: true,
+              border: const Border(
+                top: BorderSide(color: Color(0xFFE5E7EB), width: 1),
+              ),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              ),
+              panel: SelectAgencyPanel(agency: agency),
+              body: Stack(
+                children: [
+                  // Map Background (Simulated)
+                  Container(
+                    decoration: const BoxDecoration(color: Color(0xFFF0F0F0)),
+                    child: CustomPaint(
+                      painter: MapPainter(),
+                      size: Size.infinite,
+                    ),
+                  ),
+
+                  // Agency Markers
+                  Positioned(
+                    top: 200 + selectedAgency.value.hashCode % 3 * 80.0,
+                    left: 50 + (selectedAgency.value.hashCode % 3) * 100.0,
+                    child: GestureDetector(
+                      onTap: () => panelController.open(),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: accentColor,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: accentColor.withOpacity(0.3),
+                                  blurRadius: 12,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: const Icon(
+                              Icons.location_on,
+                              color: whiteColor,
+                              size: 30,
+                            ),
+                          ),
+                          Container(width: 3, height: 20, color: accentColor),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  // Search Bar
+                  Positioned(
+                    top: 50,
+                    left: 16,
+                    right: 16,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            color: whiteColor,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: blackColor.withOpacity(0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: blackColor,
+                            ),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            decoration: BoxDecoration(
+                              color: whiteColor,
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: blackColor.withOpacity(0.1),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: TextField(
+                              controller: searchController,
+                              decoration: InputDecoration(
+                                hintText: 'Enter the agency name...',
+                                hintStyle: TextStyle(
+                                  color: grayColor,
+                                  fontSize: 14,
+                                ),
+                                border: InputBorder.none,
+                                icon: Icon(Icons.search, color: grayColor),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 14,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
-              child: const Icon(Icons.location_on, color: whiteColor, size: 30),
-            ),
-            if (isSelected) Container(width: 3, height: 20, color: accentColor),
-          ],
+            );
+          },
         ),
       ),
     );
@@ -229,5 +232,3 @@ class MapPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-
-// Request Loan Screen
